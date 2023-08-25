@@ -19,9 +19,12 @@ jobs:
           path: |
             C:\vcpkg
           key: vcpkg-${{ hashFiles('vcpkg.json') }}
-      - name: Build
+      - name: Fix vcpkg path
         run: |
           mklink /j "C:\p" "C:\vcpkg"
+        shell: cmd
+      - name: Build
+        run: |
           C:\p\vcpkg.exe install --triplet x64-windows
       - name: Zip
         run: |
