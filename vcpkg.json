@@ -1,0 +1,40 @@
+{
+  "dependencies": [
+    {
+      "name": "qtwebengine",
+      "default-features": true,
+      "features": ["proprietary-codecs", "webchannel"]
+    }
+  ],
+  "overrides": [
+    {
+      "name": "qtwebengine",
+      "version": "6.4.3"
+    },
+    {
+      "name": "qtbase",
+      "version": "6.4.3"
+    },
+    {
+      "name": "qtdeclarative",
+      "version": "6.4.3"
+    },
+    {
+      "name": "qttools",
+      "version": "6.4.3"
+    },
+    {
+      "name": "qtlocation",
+      "version": "6.4.3"
+    },
+    {
+      "name": "qtwebchannel",
+      "version": "6.4.3"
+    },
+    {
+      "name": "qtshadertools",
+      "version": "6.4.3"
+    }
+  ],
+  "builtin-baseline": "a6657c38d506872a735f444159f31887791b07d3"
+}
