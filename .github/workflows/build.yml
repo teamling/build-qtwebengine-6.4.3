@@ -13,6 +13,12 @@ jobs:
       - name: Set only build release
         run: |
           node .\patch-only-release.js
+      - name: Cache vcpkg
+        uses: actions/cache@v3
+        with:
+          path: |
+            C:\vcpkg
+          key: vcpkg-${{ hashFiles('vcpkg.json') }}
       - name: Build
         run: |
           vcpkg install --triplet x64-windows
