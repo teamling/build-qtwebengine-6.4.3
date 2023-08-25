@@ -10,9 +10,13 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - name: Set only build release
+        run: |
+          echo "VCPKG_DEFAULT_TRIPLET=x64-windows-rel" >> $env:GITHUB_ENV
+          node .\patch-only-release.js
       - name: Build
         run: |
-          vcpkg install --triplet x64-windows
+          vcpkg install --triplet x64-windows-rel
       - name: Zip
         run: |
           C:\Program' 'Files\7-Zip\7z.exe a qtwebengine-6.4.3.zip vcpkg_installed\x64-windows\bin
