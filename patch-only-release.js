@@ -12,10 +12,10 @@ async function main() {
   console.log("vcpkgRoot ", vcpkgRoot);
 
   const tripletsRoot = path.join(vcpkgRoot, "triplets");
-  const x64_release = path.join(tripletsRoot, "x64-windows-rel.cmake");
-  fs.copyFileSync(path.join(tripletsRoot, "x64-windows.cmake"), x64_release);
+  const x64 = path.join(tripletsRoot, "x64-windows.cmake");
 
-  fs.appendFileSync(x64_release, "\nset(VCPKG_BUILD_TYPE release)\n");
+  // create new triplet will cause more deps compile
+  fs.appendFileSync(x64, "\nset(VCPKG_BUILD_TYPE release)\n");
 }
 
 main();
