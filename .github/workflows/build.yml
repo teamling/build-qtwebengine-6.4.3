@@ -10,9 +10,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      # - name: Set only build release
-      #   run: |
-      #     node .\patch-only-release.js
+      - name: Set only build release
+        run: |
+          node .\patch-only-release.js
       - name: Cache vcpkg
         uses: actions/cache@v3
         with:
@@ -20,13 +20,14 @@ jobs:
             C:\vcpkg
           key: vcpkg-${{ hashFiles('vcpkg.json') }}
       - name: Fix vcpkg path
+        # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
         run: |
-          cd C:\vcpkg && git pull && vcpkg update
-          mklink /j "C:\pkg" "C:\vcpkg"
-        shell: cmd
+          rename C:\vcpkg C:\p
+          cd C:\p && git pull && vcpkg update
+          echo ("VCPKG_INSTALLATION_ROOT=C:\p") >> $env:GITHUB_ENV
       - name: Build
         run: |
-          C:\pkg\vcpkg.exe install --triplet x64-windows
+          C:\p\vcpkg.exe install --triplet x64-windows
         shell: cmd
       - name: Zip
         run: |
