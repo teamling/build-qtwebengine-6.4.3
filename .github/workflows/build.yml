@@ -27,6 +27,7 @@ jobs:
       - name: Build
         run: |
           C:\p\vcpkg.exe install --triplet x64-windows
+        shell: cmd
       - name: Zip
         run: |
           C:\Program' 'Files\7-Zip\7z.exe a qtwebengine-6.4.3.zip vcpkg_installed\x64-windows\bin
