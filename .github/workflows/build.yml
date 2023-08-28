@@ -22,7 +22,7 @@ jobs:
       - name: Fix vcpkg path
         # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
         run: |
-          cd C:\ && rename vcpkg p
+          cd C:\ && dir && rename vcpkg p
         shell: cmd
       - name: Update vcpkg
         run: |
