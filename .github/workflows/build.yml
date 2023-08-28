@@ -10,9 +10,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: Set only build release
-        run: |
-          node .\patch-only-release.js
+      # - name: Set only build release
+      #   run: |
+      #     node .\patch-only-release.js
       - name: Cache vcpkg
         uses: actions/cache@v3
         with:
