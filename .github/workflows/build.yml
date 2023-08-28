@@ -26,7 +26,7 @@ jobs:
         shell: cmd
       - name: Update vcpkg
         run: |
-          cd C:\p && git pull && vcpkg update
+          cd C:\p && git pull && vcpkg.exe update
           echo ("VCPKG_INSTALLATION_ROOT=C:\p") >> $env:GITHUB_ENV
       - name: Build
         run: |
