@@ -20,11 +20,11 @@ jobs:
             C:\vcpkg
           key: vcpkg-${{ hashFiles('vcpkg.json') }}
       - name: Fix vcpkg path
+        # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
         run: |
-          rename C:\vcpkg C:\p
+          cd C:\ && rename vcpkg p
         shell: cmd
       - name: Update vcpkg
-        # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
         run: |
           cd C:\p && git pull && vcpkg update
           echo ("VCPKG_INSTALLATION_ROOT=C:\p") >> $env:GITHUB_ENV
