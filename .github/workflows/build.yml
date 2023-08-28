@@ -22,11 +22,11 @@ jobs:
       - name: Fix vcpkg path
         run: |
           cd C:\vcpkg && git pull && vcpkg update
-          mklink /j "C:\p" "C:\vcpkg"
+          mklink /j "C:\pkg" "C:\vcpkg"
         shell: cmd
       - name: Build
         run: |
-          C:\p\vcpkg.exe install --triplet x64-windows
+          C:\pkg\vcpkg.exe install --triplet x64-windows
         shell: cmd
       - name: Zip
         run: |
