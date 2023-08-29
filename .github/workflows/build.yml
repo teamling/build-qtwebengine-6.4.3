@@ -19,18 +19,19 @@ jobs:
           path: |
             C:\vcpkg
           key: vcpkg-${{ hashFiles('vcpkg.json') }}
-      - name: Fix vcpkg path
-        # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
-        run: |
-          cd /d C:\ && dir && rename vcpkg p
-          mklink /J C:\vcpkg C:\p
-        shell: cmd
+      # - name: Fix vcpkg path
+      #   # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
+      #   run: |
+      #     cd /d C:\ && dir && rename vcpkg p
+      #     mklink /J C:\vcpkg C:\p
+      #   shell: cmd
       - name: Update vcpkg
         run: |
-          cd C:\p && git pull && .\vcpkg.exe update
+          cd C:\vcpkg && git pull && .\vcpkg.exe update
       - name: Build
+        continue-on-error: true
         run: |
-          C:\p\vcpkg.exe install --triplet x64-windows
+          C:\vcpkg\vcpkg.exe install --triplet x64-windows
         shell: cmd
       - name: Zip
         run: |
