@@ -23,11 +23,11 @@ jobs:
         # https://github.com/microsoft/vcpkg/issues/32013#issuecomment-1594595562
         run: |
           cd /d C:\ && dir && rename vcpkg p
+          mklink /J C:\vcpkg C:\p
         shell: cmd
       - name: Update vcpkg
         run: |
           cd C:\p && git pull && .\vcpkg.exe update
-          echo ("VCPKG_INSTALLATION_ROOT=C:\p") >> $env:GITHUB_ENV
       - name: Build
         run: |
           C:\p\vcpkg.exe install --triplet x64-windows
