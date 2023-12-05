@@ -9,31 +9,31 @@
   "overrides": [
     {
       "name": "qtwebengine",
-      "version": "6.4.3"
+      "version": "6.5.3"
     },
     {
       "name": "qtbase",
-      "version": "6.4.3"
+      "version": "6.5.3"
     },
     {
       "name": "qtdeclarative",
-      "version": "6.4.3"
+      "version": "6.5.3"
     },
     {
       "name": "qttools",
-      "version": "6.4.3"
+      "version": "6.5.3"
     },
     {
       "name": "qtlocation",
-      "version": "6.4.3"
+      "version": "6.5.3"
     },
     {
       "name": "qtwebchannel",
-      "version": "6.4.3"
+      "version": "6.5.3"
     },
     {
       "name": "qtshadertools",
-      "version": "6.4.3"
+      "version": "6.5.3"
     }
   ],
   "builtin-baseline": "e21c414460498b0c7c94d815ad6d1a3d313ff28b"
