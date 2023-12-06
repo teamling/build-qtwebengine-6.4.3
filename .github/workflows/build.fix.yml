@@ -27,10 +27,10 @@ jobs:
       - name: Update vcpkg
         run: |
           cd C:\vcpkg && git pull && .\vcpkg.exe update
-      - name: Build
+      - name: Build error workaround
         continue-on-error: true
         run: |
-          C:\vcpkg\vcpkg.exe install --triplet x64-windows
+          C:\p\vcpkg.exe install --triplet x64-windows
         shell: cmd
       - name: Zip
         run: |
